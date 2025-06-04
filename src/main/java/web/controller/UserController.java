@@ -19,7 +19,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    UserActionDispatcher uad;
+    private UserActionDispatcher uad;
 
     @GetMapping(value = "/users")
     public String index(Model model) {
