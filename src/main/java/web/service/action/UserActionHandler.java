@@ -1,10 +1,10 @@
 package web.service.action;
 
 import web.model.User;
-import web.model.UserModify;
+import web.model.UserActionEnum;
 
 public interface UserActionHandler {
-    UserModify getUserModify();
+    UserActionEnum getUserModify();
 
     void action(User User);
 }

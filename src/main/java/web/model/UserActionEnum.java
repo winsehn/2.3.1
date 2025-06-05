@@ -1,5 +1,5 @@
 package web.model;
 
-public enum UserModify {
+public enum UserActionEnum {
     create, delete, update, edit
 }

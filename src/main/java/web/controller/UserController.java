@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.model.User;
-import web.model.UserModify;
+import web.model.UserActionEnum;
 import web.service.UserService;
 import web.service.action.UserActionDispatcher;
 
@@ -30,13 +30,13 @@ public class UserController {
     }
 
     @PostMapping(value = "/users")
-    public String addUser(Model model, @RequestParam(name = "modify") UserModify modify,
+    public String addUser(Model model, @RequestParam(name = "modify") UserActionEnum modify,
                           @RequestParam(name = "id", required = false) Long id,
                           @RequestParam(name = "name", required = false) String name,
                           @RequestParam(name = "second_name", required = false) String second_name,
                           @RequestParam(name = "years", required = false) Byte years,
                           @RequestParam(name = "sex", required = false) String sex) {
-        if (modify == UserModify.edit) {
+        if (modify == UserActionEnum.edit) {
             model.addAttribute("editingId", id);
             model.addAttribute("users", userService.getAllUsers());
             return "users";
